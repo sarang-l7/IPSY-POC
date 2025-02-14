@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/plp/:path*",
+        source: "/categories/:path*",
         destination: `${process.env.PLP_MFE}/:path*`,
       },
       {
