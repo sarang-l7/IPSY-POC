@@ -1,4 +1,5 @@
 import "./globals.css";
+import { TRPCProvider } from "@ipsy/trpc/src/client";
 import { ThemeProvider } from "@ipsy/ui";
 
 export default function RootLayout({
@@ -9,7 +10,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <TRPCProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </TRPCProvider>
       </body>
     </html>
   );
