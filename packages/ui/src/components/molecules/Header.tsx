@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { Flex, Box, Link } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 
 import NotificationBanner from "./NotificationBanner";
-import { CartIcon } from "../atoms";
+import { CartIcon, Link } from "../atoms";
 
 export default function Header() {
   return (

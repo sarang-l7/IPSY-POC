@@ -10,7 +10,7 @@ export const semanticTokens = {
       dark: { value: "{colors.dark}" },
     },
     text: {
-      DEFAULT: { value: "{colors.light}" },
+      DEFAULT: { value: "{colors.primary}" },
       light: { value: "{colors.light}" },
       dark: { value: "{colors.dark}" },
     },

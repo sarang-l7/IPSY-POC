@@ -15,7 +15,7 @@ export default function Layout({ children }: LayoutProps) {
       </Box>
 
       {/* Dynamic Page Content */}
-      <Flex as="main" flex="1" overflow="auto" align="center" justify="center">
+      <Flex as="main" flex="1" align="center" justify="center">
         {children}
       </Flex>
 
