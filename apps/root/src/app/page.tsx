@@ -1,29 +1,40 @@
 import { trpc, HydrateClient } from "@ipsy/trpc/src/server";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import Generator from "@/components/home/generator";
-import { Login } from "@/components/home/login";
 import { Flex } from "@chakra-ui/react";
 import { Layout } from "@ipsy/ui";
+import Image from "next/image";
 
 export default async function Home() {
-  const greeting = await trpc.hello();
-  // const result = await trpc.iterable();
-  // const { value } = await result.next();
-  // console.log(value);
+  const banner = await trpc.contentful.getEntriesByType({ contentType: "homepage" });
+  const bannerUrl = banner?.[0]?.heroBanner?.fields?.file;
+
   return (
     <HydrateClient>
-      <div>Root mfe</div>
       <ErrorBoundary fallback={<div>Something went wrong</div>}>
         <Suspense fallback={<div>Loading...</div>}>
           <Layout>
-            <Flex flex="1" overflow="auto" align="center" justify="center">
-              Load CMS contents here...
+            <Flex
+              overflow="auto"
+              align="center"
+              justify="center"
+              position={"relative"}
+              width={"100%"}
+            >
+              <Image
+                src={`https:${bannerUrl?.url}`}
+                alt=""
+                sizes="100vw"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+                width={bannerUrl?.details?.image?.width}
+                height={bannerUrl?.details?.image?.height}
+                priority
+              />
             </Flex>
           </Layout>
-          {greeting?.greeting}
-          <Generator />
-          <Login />
         </Suspense>
       </ErrorBoundary>
     </HydrateClient>

@@ -17,6 +17,9 @@ export default function Header() {
           <Link href="/categories" _hover={{ textDecoration: "underline" }}>
             Get Your Products
           </Link>
+          <Link href="/login" _hover={{ textDecoration: "underline" }}>
+            Login
+          </Link>
           <CartIcon />
         </Flex>
       </Box>
