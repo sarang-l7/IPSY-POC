@@ -8,8 +8,8 @@ export const createTRPCContext = cache(async () => {
 });
 
 export const contentfulClient = createClient({
-  space: "hmefixu3ou51",
-  accessToken: "INwMTNNO6C-tMze-NmyMXh_sEDVEmvtian_ABsEDObk",
+  space: process.env.CONTENTFUL_SPACE_ID!,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
 });
 
 const t = initTRPC.create({
