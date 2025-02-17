@@ -41,15 +41,15 @@ export default function Products() {
             <Text fontSize="lg" fontWeight="semibold" mt="2">
               {product.title}
             </Text>
-            <Text color="muted" mt="2">
+            <Text color="text.muted" mt="2">
               {product.description}
             </Text>
             <Text>{product.price}</Text>
             <Button
               mt={4}
               p="2"
-              bg={"tertiary"}
-              color={"secondary"}
+              bg="button.tertiary"
+              color="button.dark"
               onClick={addToCart}
             >
               Add to Cart
