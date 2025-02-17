@@ -1,3 +1,5 @@
+import Products from "./products/page";
+
 export default function Home() {
-  return "PLP Mfe";
+  return <Products />;
 }
