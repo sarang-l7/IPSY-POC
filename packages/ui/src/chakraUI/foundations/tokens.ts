@@ -1,13 +1,7 @@
+import { colors } from "./colors";
+
 export const tokens = {
-  colors: {
-    primary: { value: "#ec4899", _dark: "#fef3c7" },
-    secondary: { value: "#27272a", _dark: "#953E3E" },
-    tertiary: { value: "#fef3c7" },
-    muted: { value: "#7d7d87" },
-    accent: { value: "#E53E3E" },
-    light: { value: "#ffffff" },
-    dark: { value: "#000000" },
-  },
+  colors,
   spacing: {
     sm: { value: "8px" },
     md: { value: "16px" },
