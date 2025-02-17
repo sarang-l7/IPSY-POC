@@ -1,5 +1,5 @@
 {
-  "name": "@myorg/trpc",
+  "name": "@ipsy/trpc",
   "version": "1.0.0",
   "description": "Shared tRPC package",
   "private": "true",

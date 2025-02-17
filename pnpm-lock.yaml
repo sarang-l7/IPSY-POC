@@ -85,7 +85,7 @@ importers:
 
   apps/root:
     dependencies:
-      '@myorg/trpc':
+      '@ipsy/trpc':
         specifier: workspace:*
         version: link:../../packages/trpc
       '@trpc/server':

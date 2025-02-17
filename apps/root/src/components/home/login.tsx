@@ -1,5 +1,5 @@
 "use client";
-import { trpc } from "@myorg/trpc/src/client";
+import { trpc } from "@ipsy/trpc/src/client";
 export function Login() {
   const mutation = trpc.login.useMutation({
     // onSuccess: (data) => {

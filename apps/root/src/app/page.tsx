@@ -1,4 +1,4 @@
-import { trpc, HydrateClient } from "@myorg/trpc/src/server";
+import { trpc, HydrateClient } from "@ipsy/trpc/src/server";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import Generator from "@/components/home/generator";
