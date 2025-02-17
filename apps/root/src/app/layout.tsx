@@ -1,6 +1,7 @@
+import { Flex } from "@chakra-ui/react";
 import "./globals.css";
 import { TRPCProvider } from "@ipsy/trpc/src/client";
-import { ThemeProvider } from "@ipsy/ui";
+import { Layout, ThemeProvider } from "@ipsy/ui";
 
 export default function RootLayout({
   children,
@@ -11,7 +12,13 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <TRPCProvider>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            <Layout>
+              <Flex flex="1" overflow="auto" align="center" justify="center">
+                {children}
+              </Flex>
+            </Layout>
+          </ThemeProvider>
         </TRPCProvider>
       </body>
     </html>

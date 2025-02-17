@@ -13,17 +13,20 @@ export default async function Home() {
   // console.log(value);
   return (
     <HydrateClient>
-      <div>Root mfe</div>
       <ErrorBoundary fallback={<div>Something went wrong</div>}>
         <Suspense fallback={<div>Loading...</div>}>
-          <Layout>
-            <Flex flex="1" overflow="auto" align="center" justify="center">
-              Load CMS contents here...
-            </Flex>
-          </Layout>
-          {greeting?.greeting}
-          <Generator />
-          <Login />
+          <Flex
+            flex="1"
+            overflow="auto"
+            align="center"
+            justify="center"
+            direction="column"
+          >
+            Load CMS contents here...
+            <p>{greeting?.greeting}</p>
+            <Generator />
+            <Login />
+          </Flex>
         </Suspense>
       </ErrorBoundary>
     </HydrateClient>
