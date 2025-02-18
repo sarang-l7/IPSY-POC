@@ -4,9 +4,6 @@ import { protectedProcedure } from "../middleware";
 
 export const commercetoolsRouter = createTRPCRouter({
   getProducts: protectedProcedure.query(async ({ ctx }) => {
-    if (!ctx.session?.user) {
-      throw new Error("Unauthorized");
-    }
     try {
       const response = await apiRoot
         .orders()
