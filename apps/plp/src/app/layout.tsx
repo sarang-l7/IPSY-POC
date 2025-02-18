@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import { Flex } from "@chakra-ui/react";
 import "./globals.css";
 import { Layout, ThemeProvider } from "@ipsy/ui";
-import  CartMachineReactContext  from "../context/cartMachine";
+import { CartMachineReactContext } from "@ipsy/x-state";
 
 export default function RootLayout({
   children,

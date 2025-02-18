@@ -10,24 +10,23 @@ import {
   Image,
   Text,
 } from "@chakra-ui/react";
-import CartMachineReactContext from "../../context/cartMachine";
 
-import {useActor} from "@xstate/react"
+import { useActor } from "@xstate/react";
+import { CartMachineReactContext } from "@ipsy/x-state";
 
 export default function Products() {
   const data = CartMachineReactContext.useSelector(
     (state) => state.context.product
   );
 
-  const state = CartMachineReactContext.useSelector(state => state)
+  const state = CartMachineReactContext.useSelector((state) => state);
 
   console.dir(state);
 
   const addTocart = CartMachineReactContext.useActorRef();
- 
 
   function onClickShoppingCart() {
-    console.log("debug:: button clicked")
+    console.log("debug:: button clicked");
     addTocart.send({ type: "test_event" });
     addTocart.send({ type: "ADD_TO_CART" });
   }

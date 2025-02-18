@@ -120,6 +120,9 @@ importers:
       '@ipsy/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      '@ipsy/x-state':
+        specifier: workspace:*
+        version: link:../../packages/x-state
 
   apps/root:
     dependencies:
@@ -174,6 +177,8 @@ importers:
       next-themes:
         specifier: ^0.4.4
         version: 0.4.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+
+  packages/x-state: {}
 
 packages:
 
