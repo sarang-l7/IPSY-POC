@@ -1,4 +1,4 @@
-import { ClientBuilder } from "@commercetools/sdk-client-v2";
+import { ClientBuilder } from "@commercetools/ts-client";
 import { createApiBuilderFromCtpClient } from "@commercetools/platform-sdk";
 
 const projectKey = process.env.CTP_PROJECT_KEY!;
@@ -16,8 +16,10 @@ export const commercetoolsClient = new ClientBuilder()
       clientId: clientId,
       clientSecret: clientSecret,
     },
+    scopes: [`${process.env.CTP_SCOPES}`],
+    httpClient: fetch
   })
-  .withHttpMiddleware({ host: apiUrl })
+  .withHttpMiddleware({ host: apiUrl, httpClient: fetch })
   .build();
 
 export const apiRoot = createApiBuilderFromCtpClient(
@@ -27,18 +29,21 @@ export const apiRoot = createApiBuilderFromCtpClient(
 });
 
 export async function authenticateUser(email: string, password: string) {
-  const response = await fetch(`${authUrl}/oauth/${projectKey}/customers/token`, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({
-      grant_type: "password",
-      username: email,
-      password: password,
-      client_id: clientId,
-      client_secret: clientSecret,
-    }),
-  });
-  console.log(email, password, clientId, clientSecret, "secrets")
+  const response = await fetch(
+    `${authUrl}/oauth/${projectKey}/customers/token`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        grant_type: "password",
+        username: email,
+        password: password,
+        client_id: clientId,
+        client_secret: clientSecret,
+      }),
+    }
+  );
+  console.log(email, password, clientId, clientSecret, "secrets");
   if (!response.ok) throw new Error("Authentication failed");
   return response.json(); // Returns { access_token, expires_in, refresh_token }
 }

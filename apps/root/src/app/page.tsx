@@ -1,4 +1,4 @@
-import { trpc, HydrateClient } from "@ipsy/trpc/src/server";
+import { trpc } from "@ipsy/trpc/src/server";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Flex } from "@chakra-ui/react";
@@ -11,31 +11,29 @@ export default async function Home() {
   const bannerUrl = banner?.[0]?.heroBanner?.fields?.file;
 
   return (
-    <HydrateClient>
-      <ErrorBoundary fallback={<div>Something went wrong</div>}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Flex
-            overflow="auto"
-            align="center"
-            justify="center"
-            position={"relative"}
-            width={"100%"}
-          >
-            <Image
-              src={`https:${bannerUrl?.url}`}
-              alt=""
-              sizes="100vw"
-              style={{
-                width: "100%",
-                height: "auto",
-              }}
-              width={bannerUrl?.details?.image?.width}
-              height={bannerUrl?.details?.image?.height}
-              priority
-            />
-          </Flex>
-        </Suspense>
-      </ErrorBoundary>
-    </HydrateClient>
+    <ErrorBoundary fallback={<div>Something went wrong</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Flex
+          overflow="auto"
+          align="center"
+          justify="center"
+          position={"relative"}
+          width={"100%"}
+        >
+          <Image
+            src={`https:${bannerUrl?.url}`}
+            alt=""
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+            width={bannerUrl?.details?.image?.width}
+            height={bannerUrl?.details?.image?.height}
+            priority
+          />
+        </Flex>
+      </Suspense>
+    </ErrorBoundary>
   );
 }
