@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <Flex direction="column" minH="100vh" w="full">
       {/* Header */}
-      <Box position="sticky" top="0" zIndex="50" w="full" bg="light">
+      <Box position="sticky" top="0" zIndex="50" w="full" bg="bg.light">
         <Header />
       </Box>
 
@@ -20,7 +20,7 @@ export default function Layout({ children }: LayoutProps) {
       </Flex>
 
       {/* Footer */}
-      <Box w="full" bg="light">
+      <Box w="full" bg="bg.light">
         <Footer />
       </Box>
     </Flex>

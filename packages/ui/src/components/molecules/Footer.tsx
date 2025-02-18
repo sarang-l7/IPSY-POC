@@ -8,7 +8,7 @@ export default function Footer() {
         direction={{ base: "column", md: "row" }}
         align="center"
         justify="center"
-        bg="tertiary"
+        bg="bg.tertiary"
         p={6}
         gap={6}
       >
@@ -56,7 +56,7 @@ export default function Footer() {
         </Box>
       </Flex>
 
-      <Box bg="dark" color="light" textAlign="center" p={2}>
+      <Box bg="bg.secondary" color="text.light" textAlign="center" p={2}>
         <Text fontSize="xs">Copyright &copy; - All rights reserved</Text>
       </Box>
     </Flex>

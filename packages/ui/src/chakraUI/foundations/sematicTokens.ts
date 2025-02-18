@@ -1,21 +1,73 @@
 export const semanticTokens = {
   colors: {
+    //background
     bg: {
-      DEFAULT: { value: "{colors.secondary}" },
-      primary: { value: "{colors.primary}" },
-      secondary: { value: "{colors.secondary}" },
-      tertiary: { value: "{colors.tertiary}" },
-      accent: { value: "{colors.accent}" },
-      light: { value: "{colors.light}" },
-      dark: { value: "{colors.dark}" },
+      DEFAULT: {
+        value: {
+          base: "{colors.secondary}",
+          _dark: "{colors.secondary._dark}",
+        },
+      },
+      primary: {
+        value: { base: "{colors.primary}", _dark: "{colors.primary._dark}" },
+      },
+      secondary: {
+        value: {
+          base: "{colors.secondary}",
+          _dark: "{colors.secondary._dark}",
+        },
+      },
+      tertiary: {
+        value: { base: "{colors.tertiary}", _dark: "{colors.tertiary._dark}" },
+      },
+      accent: {
+        value: { base: "{colors.accent}", _dark: "{colors.accent._dark}" },
+      },
+      light: {
+        value: { base: "{colors.light}", _dark: "{colors.light._dark}" },
+      },
+      dark: { value: { base: "{colors.dark}", _dark: "{colors.dark._dark}" } },
     },
+    //button
+    button: {
+      DEFAULT: {
+        value: {
+          base: "{colors.secondary}",
+          _dark: "{colors.secondary._dark}",
+        },
+      },
+      primary: {
+        value: { base: "{colors.primary}", _dark: "{colors.primary._dark}" },
+      },
+      secondary: {
+        value: {
+          base: "{colors.secondary}",
+          _dark: "{colors.secondary._dark}",
+        },
+      },
+      tertiary: {
+        value: { base: "{colors.tertiary}", _dark: "{colors.tertiary._dark}" },
+      },
+      accent: {
+        value: { base: "{colors.accent}", _dark: "{colors.accent._dark}" },
+      },
+      light: {
+        value: { base: "{colors.light}", _dark: "{colors.light._dark}" },
+      },
+      dark: { value: { base: "{colors.dark}", _dark: "{colors.dark._dark}" } },
+    },
+    //text
     text: {
-      DEFAULT: { value: "{colors.primary}" },
-      light: { value: "{colors.light}" },
-      dark: { value: "{colors.dark}" },
-    },
-    border: {
-      DEFAULT: { value: "{colors.border}" },
+      DEFAULT: {
+        value: { base: "{colors.primary}", _dark: "{colors.dark._dark}" },
+      },
+      light: {
+        value: { base: "{colors.light}", _dark: "{colors.light._dark}" },
+      },
+      dark: { value: { base: "{colors.dark}", _dark: "{colors.dark._dark}" } },
+      muted: {
+        value: { base: "{colors.muted}", _dark: "{colors.muted._dark}" },
+      },
     },
   },
 };
