@@ -1,13 +1,21 @@
-import { baseProcedure, createTRPCRouter } from "../init";
-import { apiRoot } from "../commercetools";
+import { createTRPCRouter } from "../init";
+import { apiRoot } from "../commercetools-init";
+import { protectedProcedure } from "../middleware";
 
 export const commercetoolsRouter = createTRPCRouter({
-  getProducts: baseProcedure.query(async () => {
+  getProducts: protectedProcedure.query(async ({ ctx }) => {
+    if (!ctx.session?.user) {
+      throw new Error("Unauthorized");
+    }
     try {
-      const response = await apiRoot.products().get().execute();
-      return response.body.results;
+      const response = await apiRoot
+        .orders()
+        .get({ queryArgs: { limit: 10, offset: 0 } })
+        .execute();
+      return response.body;
     } catch (error) {
-      throw new Error("Failed to fetch products");
+      console.error("Error fetching orders:", error);
+      throw new Error("Failed to fetch orders");
     }
   }),
 });

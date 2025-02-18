@@ -1,6 +1,7 @@
 import z from "zod";
-import { baseProcedure, contentfulClient, createTRPCRouter } from "../init";
+import { baseProcedure, createTRPCRouter } from "../init";
 import { ContentfulField } from "../interfaces/contentful";
+import { contentfulClient } from "../contentful-init";
 
 export const contentfulRouter = createTRPCRouter({
   getEntry: baseProcedure

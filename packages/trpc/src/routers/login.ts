@@ -1,19 +1,11 @@
-import z from "zod";
-import { baseProcedure, createTRPCRouter } from "../init";
+import { createTRPCRouter } from "../init";
+import { protectedProcedure } from "../middleware";
 
-export const loginRouter = createTRPCRouter({
-  login: baseProcedure
-    .input(
-      z.object({
-        email: z.string(),
-        password: z.string(),
-      })
-    )
-    .mutation((opts) => {
-      return {
-        user: {
-          email: opts.input.email,
-        },
-      };
-    }),
+export const authRouter = createTRPCRouter({
+  privateData: protectedProcedure.query(({ ctx }) => {
+    if (!ctx.session?.user) {
+      throw new Error("Unauthorized");
+    }
+    return `${ctx.session.user.email}`;
+  }),
 });

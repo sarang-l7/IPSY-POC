@@ -14,7 +14,7 @@ export default function RootLayout({
         <TRPCProvider>
           <ThemeProvider>
             <Layout>
-              <Flex flex="1" overflow="auto" align="center" justify="center">
+              <Flex flex="1" overflow="auto" align="center" justify="center" width={"100%"}>
                 {children}
               </Flex>
             </Layout>

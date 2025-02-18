@@ -17,48 +17,18 @@ importers:
       '@chakra-ui/theme-tools':
         specifier: ^2.2.6
         version: 2.2.6(@chakra-ui/styled-system@2.12.0(react@19.0.0))(react@19.0.0)
-      '@commercetools/api-request-builder':
-        specifier: ^6.0.0
-        version: 6.0.0
-      '@commercetools/platform-sdk':
-        specifier: ^8.2.0
-        version: 8.2.0
-      '@commercetools/ts-client':
-        specifier: ^3.0.4
-        version: 3.0.4
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.0.8)(react@19.0.0)
       '@emotion/styled':
         specifier: ^11.14.0
         version: 11.14.0(@emotion/react@11.14.0(@types/react@19.0.8)(react@19.0.0))(@types/react@19.0.8)(react@19.0.0)
-      '@tanstack/react-query':
-        specifier: ^5.66.0
-        version: 5.66.3(react@19.0.0)
-      '@trpc/client':
-        specifier: 11.0.0-rc.764
-        version: 11.0.0-rc.764(@trpc/server@11.0.0-rc.764(typescript@5.7.3))(typescript@5.7.3)
-      '@trpc/react-query':
-        specifier: 11.0.0-rc.764
-        version: 11.0.0-rc.764(@tanstack/react-query@5.66.3(react@19.0.0))(@trpc/client@11.0.0-rc.764(@trpc/server@11.0.0-rc.764(typescript@5.7.3))(typescript@5.7.3))(@trpc/server@11.0.0-rc.764(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
-      '@trpc/server':
-        specifier: 11.0.0-rc.764
-        version: 11.0.0-rc.764(typescript@5.7.3)
-      client-only:
-        specifier: ^0.0.1
-        version: 0.0.1
-      contentful:
-        specifier: ^11.4.6
-        version: 11.5.0
       framer-motion:
         specifier: ^12.4.2
         version: 12.4.2(@emotion/is-prop-valid@1.3.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       next:
         specifier: 15.1.7
         version: 15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      next-auth:
-        specifier: ^4.24.11
-        version: 4.24.11(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       next-themes:
         specifier: ^0.4.4
         version: 0.4.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -71,15 +41,6 @@ importers:
       react-icons:
         specifier: ^5.4.0
         version: 5.4.0(react@19.0.0)
-      server-only:
-        specifier: ^0.0.1
-        version: 0.0.1
-      superjson:
-        specifier: ^2.2.2
-        version: 2.2.2
-      zod:
-        specifier: ^3.24.2
-        version: 3.24.2
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -135,17 +96,26 @@ importers:
       '@ipsy/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      '@trpc/server':
-        specifier: 11.0.0-rc.764
-        version: 11.0.0-rc.764(typescript@5.7.3)
+      next-auth:
+        specifier: ^4.24.11
+        version: 4.24.11(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react-error-boundary:
         specifier: ^5.0.0
         version: 5.0.0(react@19.0.0)
 
   packages/trpc:
     dependencies:
+      '@commercetools/api-request-builder':
+        specifier: ^6.0.0
+        version: 6.0.0
+      '@commercetools/platform-sdk':
+        specifier: ^8.2.0
+        version: 8.2.0
+      '@commercetools/ts-client':
+        specifier: ^3.0.4
+        version: 3.0.4
       '@tanstack/react-query':
-        specifier: ^5.66.0
+        specifier: ^5.66.3
         version: 5.66.3(react@19.0.0)
       '@trpc/client':
         specifier: 11.0.0-rc.764
@@ -156,6 +126,18 @@ importers:
       '@trpc/server':
         specifier: 11.0.0-rc.764
         version: 11.0.0-rc.764(typescript@5.7.3)
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
+      contentful:
+        specifier: ^11.5.0
+        version: 11.5.0
+      next-auth:
+        specifier: ^4.24.11
+        version: 4.24.11(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      server-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       superjson:
         specifier: ^2.2.2
         version: 2.2.2
@@ -2203,8 +2185,8 @@ packages:
     peerDependencies:
       preact: '>=10'
 
-  preact@10.26.0:
-    resolution: {integrity: sha512-6ugi/Mb7lyV5RA6KlnijFyDLMU253i7L0RRiObIzDoqj59KT9iTeNJbA/YGw6M7jP4vxaab0DOA8DgodTOA6EQ==}
+  preact@10.26.1:
+    resolution: {integrity: sha512-K5aMG0NdGHZ8yV1GfGtGA4JwnWxe/HIDzyr9svdo2DeokLUJ/+W8MpeuPrfOytu5rHHgYQrvGxUoW83sapJZnw==}
 
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
@@ -4910,6 +4892,21 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
+  next-auth@4.24.11(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      '@babel/runtime': 7.26.7
+      '@panva/hkdf': 1.2.1
+      cookie: 0.7.2
+      jose: 4.15.9
+      next: 15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      oauth: 0.9.15
+      openid-client: 5.7.1
+      preact: 10.26.1
+      preact-render-to-string: 5.2.6(preact@10.26.1)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      uuid: 8.3.2
+
   next-auth@4.24.11(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       '@babel/runtime': 7.26.7
@@ -4919,8 +4916,8 @@ snapshots:
       next: 15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       oauth: 0.9.15
       openid-client: 5.7.1
-      preact: 10.26.0
-      preact-render-to-string: 5.2.6(preact@10.26.0)
+      preact: 10.26.1
+      preact-render-to-string: 5.2.6(preact@10.26.1)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       uuid: 8.3.2
@@ -5148,12 +5145,12 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  preact-render-to-string@5.2.6(preact@10.26.0):
+  preact-render-to-string@5.2.6(preact@10.26.1):
     dependencies:
-      preact: 10.26.0
+      preact: 10.26.1
       pretty-format: 3.8.0
 
-  preact@10.26.0: {}
+  preact@10.26.1: {}
 
   prelude-ls@1.2.1: {}
 

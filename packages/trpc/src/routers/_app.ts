@@ -1,10 +1,10 @@
 import { createTRPCRouter } from "../init";
 import { commercetoolsRouter } from "./commercetools";
 import { contentfulRouter } from "./contentful";
-import { loginRouter } from "./login";
+import { authRouter } from "./login";
 
 export const appRouter = createTRPCRouter({
-  login: loginRouter,
+  login: authRouter,
   contentful: contentfulRouter,
   commerce: commercetoolsRouter
 });
