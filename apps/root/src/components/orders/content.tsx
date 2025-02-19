@@ -6,7 +6,7 @@ import React from "react";
 
 export default function Content() {
   const { data: session } = useSession();
-  const { data, error } = trpc.commerce.getProducts.useQuery();
+  const { data, error } = trpc.commerce.getOrders.useQuery();
 
   return (
     <Box spaceY={4} width={"100%"} padding={4}>

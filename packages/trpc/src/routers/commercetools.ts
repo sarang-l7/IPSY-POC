@@ -3,7 +3,7 @@ import { apiRoot } from "../commercetools-init";
 import { protectedProcedure } from "../middleware";
 
 export const commercetoolsRouter = createTRPCRouter({
-  getProducts: protectedProcedure.query(async ({ ctx }) => {
+  getOrders: protectedProcedure.query(async ({ ctx }) => {
     try {
       const response = await apiRoot
         .orders()
