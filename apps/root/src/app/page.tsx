@@ -1,4 +1,4 @@
-import { trpc } from "@ipsy/trpc/src/server";
+import { trpc } from "@ipsy/trpc/server";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Flex } from "@chakra-ui/react";

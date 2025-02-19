@@ -1,4 +1,4 @@
-import { authOptions } from "@ipsy/trpc/src/auth";
+import { authOptions } from "@ipsy/trpc";
 import NextAuth from "next-auth";
 
 const handler = NextAuth(authOptions);

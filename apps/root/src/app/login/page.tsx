@@ -2,11 +2,11 @@
 // import { trpc } from "@ipsy/trpc/src/client";
 import { useState } from "react";
 import { Box, Button, Field, Input, Stack } from "@chakra-ui/react";
-import { signIn } from "@ipsy/trpc/src/auth";
+import { signIn } from "next-auth/react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
- 
+
   // Handle form change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

@@ -1,6 +1,6 @@
 "use client";
 import { Box, Flex, List } from "@chakra-ui/react";
-import { trpc } from "@ipsy/trpc/src/client";
+import { trpc } from "@ipsy/trpc/client";
 import { signIn, signOut, useSession } from "next-auth/react";
 import React from "react";
 

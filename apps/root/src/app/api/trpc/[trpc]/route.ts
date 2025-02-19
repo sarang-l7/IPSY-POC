@@ -1,6 +1,6 @@
-import { fetchRequestHandler } from "@ipsy/trpc/src/server";
-import { createTRPCContext } from "@ipsy/trpc/src/context";
-import { appRouter } from "@ipsy/trpc/src/routers/_app";
+import { fetchRequestHandler } from "@ipsy/trpc/server";
+import { createTRPCContext } from "@ipsy/trpc";
+import { appRouter } from "@ipsy/trpc";
 const handler = (req: Request) =>
   fetchRequestHandler({
     endpoint: "/api/trpc",

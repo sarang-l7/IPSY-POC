@@ -7,6 +7,11 @@
   "scripts": {
     "build": "tsc --noEmit --incremental"
   },
+  "exports": {
+    ".": "./src/index.ts",
+    "./server": "./src/server.tsx",
+    "./client": "./src/client.tsx"
+  },
   "dependencies": {
     "@commercetools/api-request-builder": "^6.0.0",
     "@commercetools/platform-sdk": "^8.2.0",

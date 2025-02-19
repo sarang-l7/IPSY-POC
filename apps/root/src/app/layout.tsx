@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import "./globals.css";
-import { TRPCProvider } from "@ipsy/trpc/src/client";
+import { TRPCProvider } from "@ipsy/trpc/client";
 import { Layout, ThemeProvider } from "@ipsy/ui";
 
 export default function RootLayout({
