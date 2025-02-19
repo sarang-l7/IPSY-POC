@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ipsy/ui": "workspace:*"
+    "@ipsy/ui": "workspace:*",
+    "@ipsy/x-state": "workspace:*"
   }
 }

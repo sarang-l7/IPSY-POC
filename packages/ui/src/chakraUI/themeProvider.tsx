@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
-import { ThemeProvider } from "next-themes";
 import theme from "./theme";
+import { ColorModeProvider } from "./color-mode";
 
 export default function RootThemeProvider({
   children,
@@ -19,17 +19,7 @@ export default function RootThemeProvider({
   return (
     <ChakraProvider value={theme}>
       {/* Render children immediately to avoid Chakra UI context error */}
-      {mounted ? (
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-      ) : (
-        children
-      )}
+      {mounted ? <ColorModeProvider>{children}</ColorModeProvider> : children}
     </ChakraProvider>
   );
 }
