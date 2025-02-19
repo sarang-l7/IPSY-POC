@@ -1,11 +1,11 @@
 "use client";
-// import { trpc } from "@ipsy/trpc/src/client";
 import { useState } from "react";
-import { Box, Button, Field, Input, Stack } from "@chakra-ui/react";
+import { Box, Button, Field, Input, Stack, Spinner } from "@chakra-ui/react";
 import { signIn } from "next-auth/react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false);
 
   // Handle form change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,21 +15,20 @@ const ContactForm = () => {
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     const result = await signIn("signin", {
       email: formData.email,
       password: formData.password,
     });
-    if (result) window.location.reload();
+
+    if (result?.ok) {
+      window.location.reload();
+    }
+    setLoading(false);
   };
+
   return (
-    <Box
-      maxW="400px"
-      mx="auto"
-      mt="50px"
-      p="4"
-      boxShadow="md"
-      borderRadius="lg"
-    >
+    <Box maxW="400px" mx="auto" m="4" p="4" boxShadow="xs">
       <form onSubmit={handleSubmit}>
         <Stack gap="8" maxW="sm" css={{ "--field-label-width": "96px" }}>
           <Field.Root orientation="horizontal">
@@ -39,6 +38,7 @@ const ContactForm = () => {
               flex="1"
               onChange={handleChange}
               name="email"
+              p="1"
             />
           </Field.Root>
           <Field.Root orientation="horizontal">
@@ -48,10 +48,13 @@ const ContactForm = () => {
               flex="1"
               onChange={handleChange}
               name="password"
+              type="password"
+              p="1"
             />
           </Field.Root>
-          {/* {mutation.isError && <div>Check the inputs</div>} */}
-          <Button type="submit">Submit</Button>
+          <Button type="submit" loading={loading}>
+            {loading ? <Spinner size="sm" /> : "Submit"}
+          </Button>
         </Stack>
       </form>
     </Box>

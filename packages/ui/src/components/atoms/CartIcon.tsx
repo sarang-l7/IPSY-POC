@@ -28,25 +28,25 @@ export default function CartIcon() {
 
   return (
     <Flex position="relative" align="center">
-      <Icon as={FaShoppingCart} boxSize={7} color={"text.dark"} />
+      <Icon as={FaShoppingCart} boxSize={6} color={"text.dark"} />
 
       {count > 0 && (
         <chakra.span
           position="absolute"
-          top="-6px"
-          right="-6px"
+          top="-13px"
+          right="-15px"
           bg="bg.accent"
           color="text.light"
           fontSize="xs"
           fontWeight="bold"
-          px="2"
+          px="1"
           py="0.5"
           borderRadius="full"
           display="flex"
           alignItems="center"
           justifyContent="center"
-          minW="20px"
-          minH="20px"
+          minW="15px"
+          minH="15px"
         >
           {count}
         </chakra.span>

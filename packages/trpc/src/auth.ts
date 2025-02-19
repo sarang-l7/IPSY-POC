@@ -37,6 +37,7 @@ export const authOptions: AuthOptions = {
   ],
   pages: {
     signIn: "/login",
+    signOut: "/",
   },
   callbacks: {
     async session({ session, token }) {
@@ -46,6 +47,7 @@ export const authOptions: AuthOptions = {
       return session;
     },
     async redirect({ url, baseUrl }) {
+      if (url === "/") return `${baseUrl}`;
       return `${baseUrl}/orders`;
     },
     async jwt({ token, user }) {

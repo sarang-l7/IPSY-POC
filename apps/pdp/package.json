@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ipsy/trpc": "workspace:*",
     "@ipsy/ui": "workspace:*"
   }
 }

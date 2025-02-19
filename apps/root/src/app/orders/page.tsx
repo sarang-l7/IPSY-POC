@@ -1,7 +1,31 @@
 "use client";
-import Content from "@/components/orders/content";
-import { SessionProvider } from "next-auth/react";
+import { Box, Flex, List } from "@chakra-ui/react";
+import { trpc } from "@ipsy/trpc/client";
+import { useSession } from "next-auth/react";
+import React from "react";
 
 export default function Orders() {
-  return <SessionProvider><Content /></SessionProvider>;
+  const { data: session } = useSession();
+  const { data, error } = trpc.commerce.getOrders.useQuery();
+
+  return (
+    <Box spaceY={4} width={"100%"} padding={4} justifyItems="center">
+      <Flex>
+        <List.Root as="ol" listStyle="decimal">
+          {session &&
+            data?.results.map((order) => {
+              return (
+                <List.Item key={order.id}>
+                  <p>{order.customerEmail}</p>
+                  <p>{order.orderState}</p>
+                  <p>{order.shipmentState}</p>
+                </List.Item>
+              );
+            })}
+          {!session && <p>Unauthorized</p>}
+        </List.Root>
+        {error ? "Error" : ""}
+      </Flex>
+    </Box>
+  );
 }

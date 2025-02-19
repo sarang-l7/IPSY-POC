@@ -1,6 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import "./globals.css";
-import { Layout, ThemeProvider } from "@ipsy/ui";
+import { Layout } from "@ipsy/ui";
+import { Providers } from "./providers";
 
 export default function RootLayout({
   children,
@@ -10,13 +11,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider>
+        <Providers>
           <Layout>
             <Flex flex="1" overflow="auto" align="center" justify="center">
               {children}
             </Flex>
           </Layout>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
