@@ -1,8 +1,11 @@
 import React from "react";
 import { Link as ChakraLink, LinkProps } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 export default function Link(props: LinkProps) {
   return (
-    <ChakraLink href="/" _hover={{ textDecoration: "underline" }} {...props} />
+    <ChakraLink asChild _hover={{ textDecoration: "underline" }} {...props}>
+      <NextLink href={`${props.href}`} >{props.children}</NextLink>
+    </ChakraLink>
   );
 }
