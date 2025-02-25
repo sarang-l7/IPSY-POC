@@ -1,13 +1,20 @@
-"use client"
-import { createMachine, fromPromise } from "xstate";
+"use client";
+import { assign, createMachine, fromPromise } from "xstate";
 import { createActorContext } from "@xstate/react";
+import { products } from "@/utils/constants";
 
-function addToCart() {
-  console.log("debug:: add to cart called");
-}
+const addToCart = assign(({ context, event }) => {
+  const item = context.products.find((item: any) => item.id == event.id);
+  return {
+    ...context,
+    cart: [...context.cart, item],
+  };
+});
 
-function testEvent() {
-    console.log("debug:: test event called");
+const addToCartRequest = async (id: any) => {
+  // fetch request;
+  console.log("debug:: API call:: id::", id)
+  return id
 }
 
 export const cartMachine = createMachine(
@@ -20,23 +27,14 @@ export const cartMachine = createMachine(
         id: 200,
         name: "Wireless Headset",
       },
-    } as {
-      productId: string;
-      product: object | undefined;
-      error: unknown;
-      allProducts: object[];
-      cartProducts: object[];
-    },
-    on:{
-        "test_event": {
-            actions: testEvent
-        }
-    },
+      products,
+      cart: [] as Object[],
+    } as any,
     states: {
       idle: {
         on: {
           ADD_TO_CART: {
-            actions: addToCart,
+            actions: [addToCart],
             target: "adding",
           },
         },
@@ -45,9 +43,10 @@ export const cartMachine = createMachine(
       adding: {
         invoke: {
           id: "addToCart",
-          src: "addToCart",
+          src: fromPromise(({ input }) => addToCartRequest(input)),
           input: {},
           onDone: {
+            // actions: addToCart,
             target: "success",
           },
 

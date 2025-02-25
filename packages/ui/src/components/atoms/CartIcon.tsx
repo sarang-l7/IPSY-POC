@@ -5,7 +5,7 @@ import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { chakra, Flex, Icon } from "@chakra-ui/react";
 
-export default function CartIcon() {
+export default function CartIcon({onClick}) {
   const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function CartIcon() {
   }, []);
 
   return (
-    <Flex position="relative" align="center">
+    <Flex position="relative" align="center" onClick={onClick}>
       <Icon as={FaShoppingCart} boxSize={7} color={"text.dark"} />
 
       {count > 0 && (

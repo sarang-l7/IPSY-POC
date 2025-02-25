@@ -7,7 +7,7 @@ import NotificationBanner from "./NotificationBanner";
 import { CartIcon, Link } from "../atoms";
 import { ColorModeButton } from "../../chakraUI";
 
-export default function Header() {
+export default function Header({onRoute}) {
   return (
     <>
       <Box w="full" bg="bg.light">
@@ -30,7 +30,7 @@ export default function Header() {
             Login
           </Link>
           <ColorModeButton />
-          <CartIcon />
+          <CartIcon onClick={() => onRoute('/cart')} />
         </Flex>
       </Box>
       <NotificationBanner />
