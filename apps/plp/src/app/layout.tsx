@@ -1,8 +1,8 @@
 "use client";
 import { Flex } from "@chakra-ui/react";
 import "./globals.css";
-import { Layout, ThemeProvider } from "@ipsy/ui";
-import { CartMachineReactContext } from "@ipsy/x-state";
+import { Layout } from "@ipsy/ui";
+import { Providers } from "./providers";
 
 export default function RootLayout({
   children,
@@ -12,15 +12,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider>
-          <CartMachineReactContext.Provider>
-            <Layout>
-              <Flex flex="1" overflow="auto" align="center" justify="center">
-                {children}
-              </Flex>
-            </Layout>
-          </CartMachineReactContext.Provider>
-        </ThemeProvider>
+        <Providers>
+          <Layout>
+            <Flex flex="1" overflow="auto" align="center" justify="center">
+              {children}
+            </Flex>
+          </Layout>
+        </Providers>
       </body>
     </html>
   );
