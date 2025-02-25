@@ -1,6 +1,6 @@
 "use client";
 import { Link } from "../atoms";
-import { signOut } from "next-auth/react";
+import { signOut } from "@ipsy/trpc";
 import React from "react";
 
 interface LoginProps {
