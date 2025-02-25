@@ -1,11 +1,15 @@
+"use client";
 // import { SessionProvider } from "next-auth/react";
 import { TRPCProvider } from "@ipsy/trpc/client";
 import { ThemeProvider } from "@ipsy/ui";
+import { SessionProvider } from "next-auth/react";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <TRPCProvider>
-      <ThemeProvider>{children}</ThemeProvider>
-    </TRPCProvider>
+    <SessionProvider>
+      <TRPCProvider>
+        <ThemeProvider>{children}</ThemeProvider>
+      </TRPCProvider>
+    </SessionProvider>
   );
 }

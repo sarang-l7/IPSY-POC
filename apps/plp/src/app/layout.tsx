@@ -1,4 +1,3 @@
-"use client";
 import { Flex } from "@chakra-ui/react";
 import "./globals.css";
 import { Layout } from "@ipsy/ui";

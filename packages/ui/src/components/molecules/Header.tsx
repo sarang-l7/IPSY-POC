@@ -1,14 +1,16 @@
+"use client";
 import React from "react";
 import { Flex, Box } from "@chakra-ui/react";
 
 import NotificationBanner from "./NotificationBanner";
 import { CartIcon, Link } from "../atoms";
 import { ColorModeButton } from "../../chakraUI";
-import { getServerSession } from "next-auth";
+// import { getServerSession } from "next-auth";
 import Login from "./Login";
+import { useSession } from "next-auth/react";
 
-export default async function Header() {
-  const session = await getServerSession();
+export default function Header({onRoute}) {
+  const { data: session } = useSession();
   return (
     <>
       <Box w="full" bg="bg.light">
@@ -36,7 +38,7 @@ export default async function Header() {
               >
                 Orders
               </Link>
-              <CartIcon  />
+              <CartIcon onClick={() => onRoute('/cart')}  />
             </>
           )}
           <ColorModeButton />

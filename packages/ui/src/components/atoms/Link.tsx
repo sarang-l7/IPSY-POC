@@ -5,7 +5,7 @@ import NextLink from "next/link";
 export default function Link(props: LinkProps) {
   return (
     <ChakraLink asChild _hover={{ textDecoration: "underline" }} {...props}>
-      <NextLink href={`${props.href}`} >{props.children}</NextLink>
+      <NextLink href={`${props.href}`} prefetch>{props.children}</NextLink>
     </ChakraLink>
   );
 }

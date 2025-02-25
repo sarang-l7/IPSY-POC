@@ -4,10 +4,8 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { chakra, Flex, Icon } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
 
-export default function CartIcon() {
-  const router = useRouter();
+export default function CartIcon({onClick}) {
   const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
@@ -29,11 +27,7 @@ export default function CartIcon() {
   }, []);
 
   return (
-    <Flex
-      position="relative"
-      align="center"
-      onClick={() => router.push("/cart")}
-    >
+    <Flex position="relative" align="center" onClick={onClick}>
       <Icon as={FaShoppingCart} boxSize={6} color={"text.dark"} />
 
       {count > 0 && (
