@@ -1,17 +1,18 @@
-"use client";
-import { Box, Flex, List } from "@chakra-ui/react";
-import { trpc } from "@ipsy/trpc/client";
-import { useSession } from "next-auth/react";
+// "use client";
+import { Box, Flex } from "@chakra-ui/react";
+// import { trpc } from "@ipsy/trpc/client";
+import { getServerSession } from "next-auth";
+// import { useSession } from "next-auth/react";
 import React from "react";
 
-export default function Orders() {
-  const { data: session } = useSession();
-  const { data, error } = trpc.commerce.getOrders.useQuery();
-
+export default async function Orders() {
+  const session = await getServerSession();
+  // const { data, error } = trpc.commerce.getOrders.useQuery();
+  console.log(session);
   return (
     <Box spaceY={4} width={"100%"} padding={4} justifyItems="center">
       <Flex>
-        <List.Root as="ol" listStyle="decimal">
+        {/* <List.Root as="ol" listStyle="decimal">
           {session &&
             data?.results.map((order) => {
               return (
@@ -24,7 +25,7 @@ export default function Orders() {
             })}
           {!session && <p>Unauthorized</p>}
         </List.Root>
-        {error ? "Error" : ""}
+        {error ? "Error" : ""} */}
       </Flex>
     </Box>
   );

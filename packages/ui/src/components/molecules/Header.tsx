@@ -1,15 +1,14 @@
-"use client";
-
 import React from "react";
 import { Flex, Box } from "@chakra-ui/react";
-import { signOut, useSession } from "next-auth/react";
 
 import NotificationBanner from "./NotificationBanner";
 import { CartIcon, Link } from "../atoms";
 import { ColorModeButton } from "../../chakraUI";
+import { getServerSession } from "next-auth";
+import Login from "./Login";
 
-export default function Header() {
-  const { data: session } = useSession();
+export default async function Header() {
+  const session = await getServerSession();
   return (
     <>
       <Box w="full" bg="bg.light">
@@ -41,24 +40,7 @@ export default function Header() {
             </>
           )}
           <ColorModeButton />
-          {session ? (
-            <Link
-              href="/"
-              color={"text.dark"}
-              _hover={{ textDecoration: "underline" }}
-              onClick={() => signOut({ callbackUrl: "/" })}
-            >
-              Logout
-            </Link>
-          ) : (
-            <Link
-              href="/login"
-              _hover={{ textDecoration: "underline" }}
-              color={"text.dark"}
-            >
-              Login
-            </Link>
-          )}
+          <Login session={session} />
         </Flex>
       </Box>
       <NotificationBanner />
