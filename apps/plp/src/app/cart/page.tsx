@@ -15,9 +15,9 @@ import { useActor } from "@xstate/react";
 import { CartMachineReactContext } from "@ipsy/x-state";
 
 export default function Products() {
-  const data = CartMachineReactContext.useSelector(
-    (state) => state.context.product
-  );
+  // const data = CartMachineReactContext.useSelector(
+  //   (state) => state.context.product
+  // );
 
   const state = CartMachineReactContext.useSelector((state) => state);
 
@@ -26,8 +26,6 @@ export default function Products() {
   const addTocart = CartMachineReactContext.useActorRef();
 
   function onClickShoppingCart() {
-    console.log("debug:: button clicked");
-    addTocart.send({ type: "test_event" });
     addTocart.send({ type: "ADD_TO_CART" });
   }
 
@@ -42,7 +40,7 @@ export default function Products() {
         }}
         gap={5}
       >
-        {products.map((product) => (
+        {state.context.cart.map((product: any) => (
           <Box key={product.id} p={1} shadow="xs" transition="transform 0.3s">
             <Flex>
               <Flex>

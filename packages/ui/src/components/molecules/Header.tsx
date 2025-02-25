@@ -8,7 +8,7 @@ import NotificationBanner from "./NotificationBanner";
 import { CartIcon, Link } from "../atoms";
 import { ColorModeButton } from "../../chakraUI";
 
-export default function Header() {
+export default function Header({onRoute}) {
   const { data: session } = useSession();
   return (
     <>
@@ -37,7 +37,7 @@ export default function Header() {
               >
                 Orders
               </Link>
-              <CartIcon />
+              <CartIcon onClick={() => onRoute('/cart')}  />
             </>
           )}
           <ColorModeButton />
