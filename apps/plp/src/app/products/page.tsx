@@ -2,21 +2,32 @@
 
 import { products } from "@/utils/constants";
 import { Box, Button, Container, Grid, Image, Text } from "@chakra-ui/react";
+import { CartMachineReactContext } from "@ipsy/x-state";
 
 export default function Products() {
-  const addToCart = () => {
-    let cartCount = Number(localStorage.getItem("cartCount") || 0);
-    cartCount += 1;
+  
+  const cartMachine = CartMachineReactContext.useActorRef();
+  const state = CartMachineReactContext.useSelector((state) => state);
 
-    localStorage.setItem("cartCount", cartCount.toString());
+  const addToCart = (id: number) => () => {
+
+    const count = state.context.cart?.length + 1;
+
+    cartMachine.send({ type: "RESET" });
+    cartMachine.send({ type: "ADD_TO_CART", id });
+
+
+    // let cartCount = Number(localStorage.getItem("cartCount") || 0);
+    // cartCount += 1;
+
+    // localStorage.setItem("cartCount", count.toString());
 
     // Send event to Header
     window.parent.postMessage(
-      { type: "ADD_TO_CART", count: cartCount },
+      { type: "ADD_TO_CART", count: count },
       "*" // Use specific origin if needed for security
     );
 
-    console.log("PLP MFE", cartCount);
   };
 
   return (
@@ -50,7 +61,7 @@ export default function Products() {
               p="2"
               bg="button.tertiary"
               color="button.dark"
-              onClick={addToCart}
+              onClick={addToCart(product.id)}
             >
               Add to Cart
             </Button>

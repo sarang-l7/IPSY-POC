@@ -36,7 +36,7 @@ export default async function Header() {
               >
                 Orders
               </Link>
-              <CartIcon />
+              <CartIcon  />
             </>
           )}
           <ColorModeButton />

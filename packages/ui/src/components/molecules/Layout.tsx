@@ -1,13 +1,14 @@
 import React from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import { Header, Footer } from "@ipsy/ui";
-import { relative } from "path";
+// import { useRouter } from "next/navigation";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
+  // const router = useRouter();
   return (
     <Flex direction="column" minH="100vh" w="full">
       {/* Header */}
